@@ -1,0 +1,85 @@
+<odoo>
+    <record id="workshop_request_view_form" model="ir.ui.view">
+        <field name="name">workshop.request.view.form</field>
+        <field name="model">workshop.request</field>
+        <field name="arch" type="xml">
+            <form string="Solicitud de Ingreso al Taller">
+                <header>
+                    <button name="action_register_request" string="Registrar Solicitud" type="object" class="oe_highlight"
+                            invisible="not is_analyst or state == 'draft'"/>
+                    <button name="action_confirm_request" string="Confirmar" type="object" class="oe_highlight"
+                            invisible="is_analyst or state != 'waiting_assignment' or assignment_date == False"/>
+                    <button name="action_set_done" string="Realizada" type="object" class="oe_highlight"
+                            invisible="state != 'confirmed'"/>
+                    <button name="action_cancel_request" string="Cancelar"
+                            invisible="state in ('done', 'cancel')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,waiting_assignment,confirmed,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Información de la Solicitud">
+                            <field name="name"/>
+                            <field name="analyst_id" readonly="True"/>
+                            <field name="is_analyst" invisible="1"/>
+                            <field name="request_date" readonly="True"/>
+                        </group>
+                        <group string="Información del Vehículo">
+                            <field name="vehicle_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="assignment_date"
+                               readonly="state != 'waiting_assignment'"/>
+                        <field name="workshop_order_id" readonly="True"/>
+                    </group>
+                    <group string="Falla Reportada">
+                        <field name="reported_fault" nolabel="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Detalles del Taller">
+                            <group>
+                                <field name="workshop_id"/>
+                                <field name="estimated_cost"/>
+                                <field name="repair_date"/>
+                            </group>
+                            <field name="repair_details" nolabel="1" placeholder="Ingrese los detalles de la reparación aquí..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="workshop_request_view_tree" model="ir.ui.view">
+        <field name="name">workshop.request.view.tree</field>
+        <field name="model">workshop.request</field>
+        <field name="arch" type="xml">
+            <tree string="Solicitudes de Ingreso al Taller">
+                <field name="name"/>
+                <field name="analyst_id"/>
+                <field name="vehicle_id"/>
+                <field name="request_date"/>
+                <field name="assignment_date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="workshop_request_action" model="ir.actions.act_window">
+        <field name="name">Solicitudes de Ingreso al Taller</field>
+        <field name="res_model">workshop.request</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Aquí puede crear y gestionar las solicitudes de ingreso al taller.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_workshop_request" name="Solicitudes de Ingreso" parent="fleet_car_workshop.menu_car_workshop_root" action="workshop_request_action" sequence="1"/>
+</odoo>
