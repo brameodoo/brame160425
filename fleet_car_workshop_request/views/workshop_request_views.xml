@@ -8,7 +8,7 @@
                     <button name="action_register_request" string="Registrar Solicitud" type="object" class="oe_highlight"
                             invisible="not is_analyst"/>
                     <button name="action_confirm_request" string="Confirmar" type="object" class="oe_highlight"
-                            invisible="is_analyst or state != 'waiting_assignment' or assignment_date == False"/>
+                            invisible="state != 'waiting_assignment' or assignment_date == False"/>
                     <button name="action_set_done" string="Realizada" type="object" class="oe_highlight"
                             invisible="state != 'confirmed'"/>
                     <button name="action_cancel_request" string="Cancelar"
