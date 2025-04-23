@@ -91,3 +91,14 @@
                             <tree>
                                 <field name="description"/>
                                 <field name="image" widget="image" options
+                    <page string="Almacén">
+                        <button name="action_view_pickings" type="object" class="oe_stat_button" icon="fa-truck">
+                            <field name="picking_count" widget="statinfo" string="Transferencias"/>
+                        </button>
+                        <field name="picking_ids" context="{'default_workshop_order_id': active_id}" readonly="1"/>
+                        <group>
+                            <button name="create_stock_picking" type="object" string="Crear Solicitud de Refacciones" class="oe_highlight"
+                                    attrs="{'invisible': [('state', 'in', ('repaired'))]}"
+                                    groups="stock.group_stock_user"/>
+                        </group>
+                    </page>                                    
