@@ -46,7 +46,7 @@
         'views/worksheet_stages_views.xml',
         'views/worksheet_tag_views.xml',
         'views/car_workshop_reports.xml',
-        'views/fleet_vehicle_views.xml',
+      #  'views/fleet_vehicle_views.xml',
 
     ],
     'images': ['static/description/banner.png'],
