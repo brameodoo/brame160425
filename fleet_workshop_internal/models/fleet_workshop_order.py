@@ -52,6 +52,7 @@ class FleetWorkshopOrder(models.Model):
 
     def action_mark_repaired(self):
         self.write({'state': 'repaired'})
+        template_id = self.env.ref('fleet_workshop_internal.mail_template_fleet_workshop_order_repaired')
         # Aquí iría la lógica para enviar el correo al analista
 
     def create_stock_picking(self):
