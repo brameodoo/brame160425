@@ -5,3 +5,4 @@ from . import fleet_workshop_tag
 from . import fleet_workshop_order
 from . import fleet_workshop_repair_image
 from . import fleet_workshop_repair_line
+from . import stock_picking
