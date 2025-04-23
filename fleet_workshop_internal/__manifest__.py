@@ -10,7 +10,7 @@
     'author': 'Brame telecom',
     'website': 'www.grupobrame.com',
     'license': 'LGPL-3',
-    'depends': ['base', 'fleet', 'hr', 'stock'],
+    'depends': ['base', 'fleet', 'hr', 'stock', 'mail'],
     'data': [
         'security/ir.model.access.csv',
         'views/fleet_workshop_request_views.xml',
