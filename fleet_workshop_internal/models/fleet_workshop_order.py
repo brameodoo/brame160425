@@ -55,8 +55,19 @@ class FleetWorkshopOrder(models.Model):
         # Aquí iría la lógica para enviar el correo al analista
 
     def create_stock_picking(self):
-        # Aquí iría la lógica para crear la solicitud de picking
-        pass
+        self.ensure_one()
+        picking_type_id = self.env.ref('stock.picking_type_internal') # Usamos el tipo de picking interno por defecto
+        location_id = self.env.user.company_id.stock_location.id # Ubicación de origen (tu almacén principal)
+        location_dest_id = self.env.ref('stock.stock_location_stock').id # Ubicación de destino (podría ser una ubicación interna del taller)
+
+        picking = self.env['stock.picking'].create({
+            'picking_type_id': picking_type_id.id,
+            'location_id': location_id,
+            'location_dest_id': location_dest_id,
+            'origin': self.name,
+            'workshop_order_id': self.id,
+        })
+        return picking.id
 
     def action_view_pickings(self):
         action = self.env['ir.actions.act_window']._for_model('stock.picking')
