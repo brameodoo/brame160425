@@ -3,7 +3,7 @@ from odoo import models, fields, api
 class FleetWorkshopOrder(models.Model):
     _name = 'fleet.workshop.order'
     _description = 'Orden de Trabajo de Taller para Flota'
-    _inherit = ['mail.thread', 'mail.activity_mixin']
+   # _inherit = ['mail.thread', 'mail.activity_mixin']
 
     name = fields.Char(string='Número de Orden', required=True, copy=False, default='Nuevo')
     request_id = fields.Many2one('fleet.workshop.request', string='Solicitud de Taller', ondelete='restrict', required=True)
