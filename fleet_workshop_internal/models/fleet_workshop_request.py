@@ -4,7 +4,7 @@ from odoo.exceptions import ValidationError
 class FleetWorkshopRequest(models.Model):
     _name = 'fleet.workshop.request'
     _description = 'Solicitud de Taller para Flota Vehicular'
-    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _inherit = ['mail.thread', 'mail.activity_mixin']
 
     name = fields.Char(string='Número de Solicitud', required=True, copy=False, default='Nuevo')
     vehicle_id = fields.Many2one('fleet.vehicle', string='Vehículo', required=True, ondelete='cascade', index=True)
@@ -38,12 +38,11 @@ class FleetWorkshopRequest(models.Model):
             vals['name'] = self.env['ir.sequence'].next_by_code('fleet.workshop.request') or 'Nuevo'
         return super(FleetWorkshopRequest, self).create(vals)
 
-        @api.onchange('reception_date')
-        def _onchange_reception_date(self):
+    @api.onchange('reception_date')
+    def _onchange_reception_date(self):
         if self.reception_date:
             template_id = self.env.ref('fleet_workshop_internal.mail_template_fleet_workshop_request_assigned')
             template_id.send_mail(self.id, force_send=True)
-
 
     @api.constrains('vehicle_id', 'state')
     def _check_duplicate_request(self):
