@@ -10,10 +10,11 @@
     'author': 'Brame telecom',
     'website': 'www.grupobrame.com',
     'license': 'LGPL-3',
-    'depends': ['base', 'fleet', 'hr'],
+    'depends': ['base', 'fleet', 'hr', 'stock'],
     'data': [
         'security/ir.model.access.csv',
         'views/fleet_workshop_request_views.xml',
+        'views/fleet_workshop_order_views.xml',  # Agregamos las vistas de la orden
         'data/fleet_workshop_request_sequence.xml',
         'data/fleet_workshop_order_sequence.xml',
     ],
