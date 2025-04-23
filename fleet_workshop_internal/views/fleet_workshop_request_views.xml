@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="fleet_workshop_request_action" model="ir.actions.act_window">
+        <name>Solicitudes de Taller</name>
+        <type>ir.actions.act_window</type>
+        <res_model>fleet.workshop.request</res_model>
+        <view_mode>tree,form,calendar</view_mode>
+        <domain></domain>
+        <context></context>
+        <help type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear una nueva solicitud de taller
+            </p><p>
+                Registre aquí las solicitudes de servicio o reparación para la flota vehicular.
+            </p>
+        </help>
+    </record>
+
+    <record id="fleet_workshop_request_view_tree" model="ir.ui.view">
+        <name>fleet.workshop.request.tree</name>
+        <model>fleet.workshop.request</model>
+        <arch type="tree">
+            <field name="name"/>
+            <field name="analyst_id"/>
+            <field name="district_id"/>
+            <field name="vehicle_id"/>
+            <field name="request_date"/>
+            <field name="failure_description"/>
+            <field name="state"/>
+            <field name="assignment_date"/>
+        </arch>
+    </record>
+
+    <record id="fleet_workshop_request_view_form" model="ir.ui.view">
+        <name>fleet.workshop.request.form</name>
+        <model>fleet.workshop.request</model>
+        <arch type="form">
+            <sheet>
+                <div class="oe_button_box" name="button_box">
+                    <button class="oe_stat_button" type="object"
+                            name="%(fleet_workshop_order_action)d"
+                            icon="fa-wrench"
+                            attrs="{'invisible': [('state', 'not in', ('assigned', 'repaired'))]}">
+                        <field name="order_count" widget="statinfo" string="Órdenes de Trabajo"/>
+                    </button>
+                </div>
+                <group name="main">
+                    <group name="left">
+                        <field name="name" string="Número de Solicitud" readonly="1"/>
+                        <field name="vehicle_id" options="{'no_open': True, 'no_create': True}"/>
+                        <field name="license_plate"/>
+                        <field name="vin_sn"/>
+                        <field name="model_id"/>
+                        <field name="driver_id" options="{'no_open': True, 'no_create': True}"/>
+                        <field name="district_id"/>
+                    </group>
+                    <group name="right">
+                        <field name="analyst_id" options="{'no_open': True, 'no_create': True}"/>
+                        <field name="analyst_phone"/>
+                        <field name="analyst_email"/>
+                        <field name="contact_phone"/>
+                        <field name="request_date"/>
+                    </group>
+                </group>
+                <group name="description">
+                    <field name="failure_description" placeholder="Descripción detallada de la falla reportada por el conductor..."/>
+                </group>
+                <group name="assignment" string="Asignación y Recepción">
+                    <field name="state" widget="statusbar" statusbar_visible="generated,waiting_assignment,assigned"/>
+                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                    <field name="assignment_date" attrs="{'readonly': [('state', '!=', 'waiting_assignment')]}"/>
+                    <field name="reception_date" attrs="{'readonly': [('state', '!=', 'assigned')]}"/>
+                    <field name="rejection_reason" attrs="{'invisible': [('state', '!=', 'assignment_rejected')], 'required': [('state', '=', 'assignment_rejected')]}"/>
+                    <field name="whatsapp_notification" attrs="{'invisible': [('contact_phone', '=', False)]}"/>
+                </group>
+            </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids"/>
+                <field name="activity_ids"/>
+                <field name="message_ids"/>
+            </div>
+        </arch>
+    </record>
+
+    <record id="fleet_workshop_request_view_calendar" model="ir.ui.view">
+        <name>fleet.workshop.request.calendar</name>
+        <model>fleet.workshop.request</model>
+        <arch type="calendar" date_start="request_date" color="district_id">
+            <field name="vehicle_id"/>
+        </arch>
+    </record>
+
+    <menuitem id="menu_fleet_workshop_request"
+              name="Solicitudes de Taller"
+              action="fleet_workshop_request_action"
+              sequence="10"/>
+</odoo>
