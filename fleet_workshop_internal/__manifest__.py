@@ -18,6 +18,8 @@
         'views/fleet_vehicle_views.xml',
         'data/fleet_workshop_request_sequence.xml',
         'data/fleet_workshop_order_sequence.xml',
+        'data/mail_template_request_assigned.xml',  # Agrega la plantilla de solicitud asignada
+        'data/mail_template_order_repaired.xml',    # Agrega la plantilla de orden reparada
     ],
     'installable': True,
     'application': True,
