@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="mail_template_fleet_workshop_request_assigned" model="mail.template">
+            <field name="name">Taller Flota - Fecha de Recepción Asignada</field>
+            <field name="model_id" ref="model_fleet_workshop_request"/>
+            <field name="subject">Fecha de Recepción Asignada para el Vehículo {{ object.vehicle_id.license_plate }}</field>
+            <field name="email_from">{{ user.email_formatted }}</field>
+            <field name="email_to">{{ object.analyst_email }}</field>
+            <field name="body_html"><![CDATA[
+                <div style="margin: 0px; padding: 0px;">
+                    <p>Estimado(a) {{ object.analyst_id.name }},</p>
+                    <p>Se ha asignado una fecha de recepción en el taller para el vehículo <strong>{{ object.vehicle_id.license_plate }}</strong> con número de chasis <strong>{{ object.vehicle_id.vin_sn }}</strong>.</p>
+                    <p>La fecha de recepción programada es: <strong>{{ object.reception_date }}</strong>.</p>
+                    <p>Por favor, coordina con el conductor para la entrega del vehículo en la fecha indicada.</p>
+                    <p>Número de Solicitud: <strong>{{ object.name }}</strong></p>
+                    <br/>
+                    <p>Gracias,</p>
+                    <p>{{ user.name }}</p>
+                </div>
+            ]]></field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+    </data>
+</odoo>
