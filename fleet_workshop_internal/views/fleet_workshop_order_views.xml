@@ -16,6 +16,22 @@
         </help>
     </record>
 
+    <record id="fleet_vehicle_workshop_order_action" model="ir.actions.act_window">
+        <name>Historial de Reparaciones</name>
+        <type>ir.actions.act_window</type>
+        <res_model>fleet.workshop.order</res_model>
+        <view_mode>tree,form</view_mode>
+        <domain>[('vehicle_id', '=', active_id)]</domain>
+        <context>{'default_vehicle_id': active_id}</context>
+        <help type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No hay órdenes de trabajo registradas para este vehículo.
+            </p><p>
+                Cree una nueva orden de trabajo para este vehículo.
+            </p>
+        </help>
+    </record>
+
     <record id="fleet_workshop_order_view_tree" model="ir.ui.view">
         <name>fleet.workshop.order.tree</name>
         <model>fleet.workshop.order</model>
@@ -125,21 +141,5 @@
                 <field name="message_ids"/>
             </div>
         </arch>
-    </record>
-
-    <record id="fleet_vehicle_workshop_order_action" model="ir.actions.act_window">
-        <name>Historial de Reparaciones</name>
-        <type>ir.actions.act_window</type>
-        <res_model>fleet.workshop.order</res_model>
-        <view_mode>tree,form</view_mode>
-        <domain>[('vehicle_id', '=', active_id)]</domain>
-        <context>{'default_vehicle_id': active_id}</context>
-        <help type="html">
-            <p class="o_view_nocontent_smiling_face">
-                No hay órdenes de trabajo registradas para este vehículo.
-            </p><p>
-                Cree una nueva orden de trabajo para este vehículo.
-            </p>
-        </help>
     </record>
 </odoo>
