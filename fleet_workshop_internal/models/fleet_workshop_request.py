@@ -4,7 +4,7 @@ from odoo.exceptions import ValidationError
 class FleetWorkshopRequest(models.Model):
     _name = 'fleet.workshop.request'
     _description = 'Solicitud de Taller para Flota Vehicular'
-    _inherit = ['mail.thread', 'mail.activity_mixin']
+    #_inherit = ['mail.thread', 'mail.activity_mixin']
 
     name = fields.Char(string='Número de Solicitud', required=True, copy=False, default='Nuevo')
     vehicle_id = fields.Many2one('fleet.vehicle', string='Vehículo', required=True, ondelete='cascade', index=True)
