@@ -1,0 +1,85 @@
+<odoo>
+    <data>
+        <!-- Workshop Request Form -->
+        <record id="view_fleet_workshop_request_form" model="ir.ui.view">
+            <field name="name">fleet.workshop.request.form</field>
+            <field name="model">fleet.workshop.request</field>
+            <field name="arch" type="xml">
+                <form string="Workshop Request">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="vehicle_id"/>
+                            <field name="license_plate"/>
+                            <field name="vin_sn"/>
+                            <field name="model_id"/>
+                            <field name="driver_id"/>
+                            <field name="district_id"/>
+                            <field name="analyst_id"/>
+                            <field name="analyst_phone"/>
+                            <field name="analyst_email"/>
+                            <field name="contact_phone"/>
+                            <field name="request_date"/>
+                            <field name="fault_description"/>
+                            <field name="state"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Workshop Order Form -->
+        <record id="view_fleet_workshop_order_form" model="ir.ui.view">
+            <field name="name">fleet.workshop.order.form</field>
+            <field name="model">fleet.workshop.order</field>
+            <field name="arch" type="xml">
+                <form string="Workshop Order">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="request_id"/>
+                            <field name="vehicle_id"/>
+                            <field name="license_plate"/>
+                            <field name="vin_sn"/>
+                            <field name="model_id"/>
+                            <field name="driver_id"/>
+                            <field name="district_id"/>
+                            <field name="analyst_id"/>
+                            <field name="analyst_phone"/>
+                            <field name="analyst_email"/>
+                            <field name="request_date"/>
+                            <field name="assignment_date"/>
+                            <field name="reception_date"/>
+                            <field name="state"/>
+                        </group>
+                        <notebook>
+                            <page string="Datos de ingreso">
+                                <group>
+                                    <field name="fault_description"/>
+                                    <field name="mechanic_id"/>
+                                    <field name="odometer"/>
+                                    <field name="fuel_level"/>
+                                    <field name="diagnosis"/>
+                                </group>
+                            </page>
+                            <page string="Servicios">
+                                <field name="service_ids" widget="many2many_tags"/>
+                            </page>
+                            <page string="Almacén">
+                                <field name="picking_ids" widget="many2many_tags"/>
+                            </page>
+                            <page string="Imágenes de servicio">
+                                <field name="image_ids" widget="many2many_binary"/>
+                            </page>
+                            <page string="Verificación">
+                                <group>
+                                    <field name="verification_notes"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
