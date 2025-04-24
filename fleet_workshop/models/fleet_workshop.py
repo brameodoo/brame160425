@@ -57,6 +57,7 @@ class FleetWorkshopOrder(models.Model):
         ('repaired', 'Repaired')
     ], string='Status', default='entry')
 
+    fault_description = fields.Text(string='Fault Description', related='request_id.fault_description', readonly=True)
     mechanic_id = fields.Many2one('hr.employee', string='Mechanic')
     odometer = fields.Float(string='Odometer')
     fuel_level = fields.Float(string='Fuel Level')
