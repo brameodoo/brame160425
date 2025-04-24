@@ -37,7 +37,7 @@ class FleetWorkshopOrder(models.Model):
 
     name = fields.Char(string='Order Number', required=True, copy=False, readonly=True, default=lambda self: _('New'))
     request_id = fields.Many2one('fleet.workshop.request', string='Workshop Request', required=True)
-    vehicle_id = fields.Many2one(related='request_id.vehicle_id', string='Vehicle', readonly=True)
+    fields.Many2one(related='request_id.vehicle_id', string='Vehicle', readonly=True)
     license_plate = fields.Char(related='vehicle_id.license_plate', string='License Plate', readonly=True)
     vin_sn = fields.Char(related='vehicle_id.vin_sn', string='Chassis Number', readonly=True)
     model_id = fields.Many2one(related='vehicle_id.model_id', string='Model', readonly=True)
@@ -65,6 +65,7 @@ class FleetWorkshopOrder(models.Model):
     service_ids = fields.Many2many('product.product', string='Services')
     image_ids = fields.One2many('ir.attachment', 'res_id', domain=[('res_model', '=', 'fleet.workshop.order')], string='Service Images')
     verification_notes = fields.Text(string='Verification Notes')
+    picking_ids = fields.Many2many('stock.picking', string='Pickings')
 
     @api.model
     def create(self, vals):
