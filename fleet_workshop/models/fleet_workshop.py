@@ -37,7 +37,7 @@ class FleetWorkshopOrder(models.Model):
 
     name = fields.Char(string='Order Number', required=True, copy=False, readonly=True, default=lambda self: _('New'))
     request_id = fields.Many2one('fleet.workshop.request', string='Workshop Request', required=True)
-    fields.Many2one(related='request_id.vehicle_id', string='Vehicle', readonly=True)
+    vehicle_id = fields.Many2one('fleet.vehicle', string='Vehicle', readonly=True)
     license_plate = fields.Char(related='vehicle_id.license_plate', string='License Plate', readonly=True)
     vin_sn = fields.Char(related='vehicle_id.vin_sn', string='Chassis Number', readonly=True)
     model_id = fields.Many2one(related='vehicle_id.model_id', string='Model', readonly=True)
