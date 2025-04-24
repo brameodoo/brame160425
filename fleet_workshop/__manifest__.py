@@ -8,7 +8,7 @@
     'depends': ['fleet', 'hr', 'stock'],
     'data': [
         'views/fleet_workshop_views.xml',
-        'views/fleet_workshop_templates.xml',
+       # 'views/fleet_workshop_templates.xml',
         'security/ir.model.access.csv',
     ],
     'installable': True,
