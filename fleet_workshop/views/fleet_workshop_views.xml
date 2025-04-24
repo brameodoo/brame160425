@@ -4,7 +4,7 @@
         <record id="view_fleet_workshop_request_form" model="ir.ui.view">
             <field name="name">fleet.workshop.request.form</field>
             <field name="model">fleet.workshop.request</field>
-            <field name="arch" type="xml">
+            name="arch" type="xml">
                 <form string="Workshop Request">
                     <sheet>
                         <group>
