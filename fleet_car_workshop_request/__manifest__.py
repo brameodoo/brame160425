@@ -22,7 +22,7 @@
     # Check https://github.com/odoo/odoo/blob/16.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Services/Fleet', # O una categoría más apropiada
-    'version': '17.0.0', # Ajusta a tu versión de Odoo
+    'version': '17.0.1.0.0', # Ajusta a tu versión de Odoo
 
     # any module necessary for this one to work correctly
     'depends': ['base', 'product', 'mail'], # Añadido 'mail' para chatter, 'product' para service_check
