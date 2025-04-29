@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_taller_root"
+                  name="Taller Interno"
+                  sequence="10"/> <menuitem id="menu_car_workshop"
+                  name="Órdenes de Taller"
+                  parent="menu_taller_root"
+                  action="action_car_workshop"
+                  sequence="10"/>
+
+        <menuitem id="menu_taller_config"
+                  name="Configuración"
+                  parent="menu_taller_root"
+                  sequence="100"/>
+
+         <menuitem id="menu_workshop_district"
+                  name="Distritos de Taller"
+                  parent="menu_taller_config"
+                  action="action_workshop_district"
+                  sequence="10"/>
+
+    </data>
+</odoo>

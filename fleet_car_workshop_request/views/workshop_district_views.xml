@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_workshop_district_tree" model="ir.ui.view">
+            <field name="name">workshop.district.tree</field>
+            <field name="model">workshop.district</field>
+            <field name="arch" type="xml">
+                <tree string="Distritos de Taller">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_workshop_district_form" model="ir.ui.view">
+            <field name="name">workshop.district.form</field>
+            <field name="model">workshop.district</field>
+            <field name="arch" type="xml">
+                <form string="Distrito de Taller">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_workshop_district_search" model="ir.ui.view">
+            <field name="name">workshop.district.search</field>
+            <field name="model">workshop.district</field>
+            <field name="arch" type="xml">
+                <search string="Buscar Distrito">
+                    <field name="name"/>
+                    <filter string="Nombre" name="filter_name" domain="[('name', 'ilike', self)]"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_workshop_district" model="ir.actions.act_window">
+            <field name="name">Distritos de Taller</field>
+            <field name="res_model">workshop.district</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_workshop_district_search"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Crea un nuevo distrito de taller.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>
