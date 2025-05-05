@@ -1,10 +1,10 @@
-<record id="view_expense_form" model="ir.ui.view">
-    <field name="name">hr.expense.form</field>
+<record id="view_expense_form_custom" model="ir.ui.view">
+    <field name="name">hr.expense.form.custom</field>
     <field name="model">hr.expense</field>
-    <field name="inherit_id" ref="hr.expense.view.form"/>
+    <field name="inherit_id" ref="hr_expense.view_expense_form"/>
     <field name="arch" type="xml">
-        <button name="action_submit_expenses" position="after">
+        <xpath expr="//button[@name='action_submit_expenses']" position="after">
             <button name="action_adjust_expense" type="object" string="Ajustar Gasto" class="oe_highlight"/>
-        </button>
+        </xpath>
     </field>
 </record>
