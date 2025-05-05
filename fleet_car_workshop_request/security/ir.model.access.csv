@@ -1,5 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_car_workshop_user,car.workshop user access,model_car_workshop,base.group_user,1,1,1,1
-access_car_workshop_image_user,car.workshop.image user access,model_car_workshop_image,base.group_user,1,1,1,1
-access_car_workshop_service_check_user,car.workshop.service.check user access,model_car_workshop_service_check,base.group_user,1,1,1,1
-access_workshop_district_user,workshop.district user access,model_workshop_district,base.group_user,1,1,1,1
