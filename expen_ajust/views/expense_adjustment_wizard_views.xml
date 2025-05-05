@@ -1,0 +1,18 @@
+<odoo>
+    <record id="view_expense_adjustment_wizard_form" model="ir.ui.view">
+        <field name="name">expense.adjustment.wizard.form</field>
+        <field name="model">expense.adjustment.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Ajuste de Gasto">
+                <group>
+                    <field name="expense_id"/>
+                    <field name="unverified_amount"/>
+                </group>
+                <footer>
+                    <button string="Ajustar" type="object" name="adjust_expense" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
