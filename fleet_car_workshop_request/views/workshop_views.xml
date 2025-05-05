@@ -1,0 +1,43 @@
+<odoo>
+    <record id="view_fleet_car_workshop_request_form" model="ir.ui.view">
+        <field name="name">fleet.car.workshop.request.form</field>
+        <field name="model">fleet.car.workshop.request</field>
+        <field name="arch" type="xml">
+            <form string="Workshop Request">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="vehicle_id"/>
+                        <field name="employee_id"/>
+                        <field name="request_date"/>
+                        <field name="description"/>
+                        <field name="state"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fleet_car_workshop_request_tree" model="ir.ui.view">
+        <field name="name">fleet.car.workshop.request.tree</field>
+        <field name="model">fleet.car.workshop.request</field>
+        <field name="arch" type="xml">
+            <tree string="Workshop Requests">
+                <field name="name"/>
+                <field name="vehicle_id"/>
+                <field name="employee_id"/>
+                <field name="request_date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="menu_fleet_car_workshop_root" name="Workshop"/>
+    <menuitem id="menu_fleet_car_workshop_request" name="Workshop Requests" parent="menu_fleet_car_workshop_root"/>
+
+    <act_window id="action_fleet_car_workshop_request"
+                name="Workshop Requests"
+                res_model="fleet.car.workshop.request"
+                view_mode="tree,form"
+                menu_id="menu_fleet_car_workshop_request"/>
+</odoo>
