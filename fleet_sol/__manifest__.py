@@ -11,9 +11,8 @@ Cada solicitud es realizada por un analista y contiene información del vehícul
     'depends': ['base', 'fleet', 'hr', 'mail'],
     'data': [
         'security/ir.model.access.csv',
+        'data/ir_sequence_data.xml',
         'views/taller_solicitud_views.xml',
-        'views/taller_solicitud_menus.xml',
-        'data/sequence.xml',
     ],
     'installable': True,
     'application': True,
