@@ -40,11 +40,8 @@
         </field>
     </record>
 
-    <!-- Menús -->
-    <menuitem id="menu_taller_root" name="Taller" parent="fleet.fleet_menu_root" sequence="30"/>
-    <menuitem id="menu_taller_solicitud" name="Solicitudes" parent="menu_taller_root" sequence="10"/>
-
-    <!-- Acción -->
+    <menuitem id="menu_taller_root" name="Taller"/>
+    <menuitem id="menu_taller_solicitud" name="Solicitudes" parent="menu_taller_root"/>
     <act_window id="action_taller_solicitud"
                 name="Solicitudes Taller"
                 res_model="taller.solicitud"
