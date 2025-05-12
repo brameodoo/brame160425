@@ -41,7 +41,7 @@
     </record>
 
     <menuitem id="menu_taller_root" name="Taller"/>
-    <menuitem id="menu_taller_solicitud" name="Solicitudes" parent="menu_taller_root"/>
+    <menuitem id="menu_taller_root" name="Taller" parent="fleet.fleet_menu_root"/>
 
     <act_window id="action_taller_solicitud"
                 name="Solicitudes Taller"
