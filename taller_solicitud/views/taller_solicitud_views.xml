@@ -41,4 +41,14 @@
             </tree>
         </field>
     </record>
+
+        <!-- Menú dentro de Flota -->
+    <menuitem id="menu_taller_solicitud" name="Solicitudes Taller" parent="fleet.fleet_menu_root"/>
+
+    <!-- Acción vinculada al menú -->
+    <act_window id="action_taller_solicitud"
+                name="Solicitudes Taller"
+                res_model="taller.solicitud"
+                view_mode="tree,form"
+                menu_id="menu_taller_solicitud"/>
 </odoo>
