@@ -9,6 +9,7 @@
     "data": [
         "security/ir.model.access.csv",
         "views/taller_solicitud_views.xml",
+        "views/taller_solicitud_menu.xml",
         "data/ir_sequence_data.xml"
     ],
     "installable": True,
