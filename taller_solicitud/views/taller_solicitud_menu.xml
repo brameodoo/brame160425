@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <!-- Menú raíz personalizado para Taller -->
+    <menuitem id="menu_taller_root"
+              name="Taller"
+              sequence="10"/>
+
     <!-- Acción para abrir la vista de solicitudes -->
     <record id="action_taller_solicitud" model="ir.actions.act_window">
         <field name="name">Solicitudes de Taller</field>
@@ -12,10 +17,10 @@
         </field>
     </record>
 
-    <!-- Menú: debajo del menú raíz de Flota -->
+    <!-- Menú hijo bajo Taller -->
     <menuitem id="menu_taller_solicitud"
               name="Solicitudes de Taller"
-              parent="fleet.fleet_menu_root"
+              parent="menu_taller_root"
               action="action_taller_solicitud"
               sequence="20"/>
 </odoo>
