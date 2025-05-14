@@ -13,11 +13,12 @@
                         <field name="descripcion_falla"/>
                         <field name="telefono_analista" readonly="1"/>
                         <field name="fecha_solicitud" readonly="1"/>
-                        <field name="fecha_asignacion" attrs="{'readonly': [('state', '=', 'draft')]}"/>
+                        <field name="fecha_asignacion" modifiers='{"readonly": [["state", "=", "draft"]]}'/>
                         <field name="state" readonly="1"/>
                     </group>
                     <footer>
-                        <button name="action_confirmar" type="object" string="Confirmar Solicitud" class="btn-primary" states="draft"/>
+                        <button name="action_confirmar" type="object" string="Confirmar Solicitud" class="btn-primary"
+                                modifiers='{"states": ["draft"]}'/>
                         <button string="Cancelar" class="btn-secondary" special="cancel"/>
                     </footer>
                 </sheet>
