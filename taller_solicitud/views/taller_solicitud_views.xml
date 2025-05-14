@@ -41,13 +41,4 @@
             </tree>
         </field>
     </record>
-
-
-    <!-- Menú: debajo de Odómetros -->
-    <menuitem id="menu_taller_solicitud"
-              name="Solicitudes de Taller"
-              parent="fleet.fleet_odometer_menu"
-              action="action_taller_solicitud"
-              sequence="20"/>
-
 </odoo>
