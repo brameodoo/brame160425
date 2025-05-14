@@ -40,12 +40,4 @@
             </tree>
         </field>
     </record>
-
-    <menuitem id="menu_taller_root" name="Taller"/>
-    <menuitem id="menu_taller_solicitud" name="Solicitudes" parent="menu_taller_root"/>
-    <act_window id="action_taller_solicitud"
-                name="Solicitudes Taller"
-                res_model="taller.solicitud"
-                view_mode="tree,form"
-                menu_id="menu_taller_solicitud"/>
 </odoo>
