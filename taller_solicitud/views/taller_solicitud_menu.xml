@@ -12,10 +12,10 @@
         </field>
     </record>
 
-    <!-- Menú: debajo de Odómetros -->
+    <!-- Menú: debajo del menú raíz de Flota -->
     <menuitem id="menu_taller_solicitud"
               name="Solicitudes de Taller"
-              parent="fleet.fleet_odometer_menu"
+              parent="fleet.fleet_menu_root"
               action="action_taller_solicitud"
               sequence="20"/>
 </odoo>
